@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --main-background: hsl(217, 54%, 11%);
+  --card-background: hsl(216, 50%, 16%);
+  --line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-background);
+}
+
+p {
+  font-size: 18px;
+}
+
+.card {
+  width: 90%;
+  max-width: 400px;
+  padding: 1.75rem;
+  background-color: var(--card-background);
+  color: var(--white);
+  border-radius: 1rem;
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.card-image::before,
+.card-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.card-image::before {
+  background-color: var(--cyan);
+  opacity: 0.5;
+  border-radius: 0.5rem;
+  transform: translateX(100%);
+  transition: transform 200ms;
+}
+
+.card-image:hover::before {
+  transform: translateX(0);
+  cursor: pointer;
+}
+
+.card-image:hover::after {
+  background-image: url("images/icon-view.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.card-title {
+  margin: 1.5rem 0;
+}
+
+.card-title:hover {
+  color: var(--cyan);
+}
+
+.card-text {
+  color: var(--soft-blue);
+  margin: 1.25rem 0;
+}
+
+.row {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.center {
+  align-items: center;
+}
+
+.left-column {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.right-column {
+  color: var(--soft-blue);
+}
+
+.gap {
+  gap: 0.25rem;
+}
+
+.line {
+  height: 1px;
+  background-color: var(--line);
+  margin: 1.25rem 0;
+}
+
+.card-creator {
+  color: var(--soft-blue);
+}
+
+.card-creator-image img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 0.15rem solid var(--white);
+}
+
+.big-gap {
+  gap: 1.5rem;
+}
+
+.creator {
+  color: var(--white);
+}
+
+.creator:hover {
+  color: var(--cyan);
+}
+
+.pointer {
+  cursor: pointer;
+}

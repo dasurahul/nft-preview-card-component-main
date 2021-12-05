@@ -9,13 +9,14 @@
   --white: hsl(0, 0%, 100%);
 }
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   font-family: "Outfit", sans-serif;
   min-height: 100vh;
   display: flex;
@@ -39,7 +40,6 @@ p {
 
 .card-image {
   position: relative;
-  overflow: hidden;
 }
 
 .card-image img {
@@ -62,19 +62,25 @@ p {
   background-color: var(--cyan);
   opacity: 0.5;
   border-radius: 0.5rem;
-  transform: translateX(100%);
-  transition: transform 200ms;
+  transform: scale(0);
+  transition: transform 0.2s;
 }
 
 .card-image:hover::before {
-  transform: translateX(0);
+  transform: scale(1);
   cursor: pointer;
 }
 
-.card-image:hover::after {
+.card-image::after {
   background-image: url("images/icon-view.svg");
   background-repeat: no-repeat;
   background-position: center;
+  transform: scale(0);
+  transition: transform 0.2s;
+}
+
+.card-image:hover::after {
+  transform: scale(1);
   cursor: pointer;
 }
 

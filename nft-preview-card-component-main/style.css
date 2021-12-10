@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
 
 :root {
-  --soft-blue: hsl(215, 51%, 70%);
-  --cyan: hsl(178, 100%, 50%);
-  --main-background: hsl(217, 54%, 11%);
-  --card-background: hsl(216, 50%, 16%);
-  --line: hsl(215, 32%, 27%);
-  --white: hsl(0, 0%, 100%);
+  --soft-blue-color: hsl(215, 51%, 70%);
+  --cyan-color: hsl(178, 100%, 50%);
+  --main-background-color: hsl(217, 54%, 11%);
+  --card-background-color: hsl(216, 50%, 16%);
+  --line-color: hsl(215, 32%, 27%);
+  --white-color: hsl(0, 0%, 100%);
 }
 
 *,
@@ -18,38 +18,46 @@
 body {
   margin: 0;
   font-family: "Outfit", sans-serif;
-  min-height: 100vh;
+}
+
+main {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--main-background);
+  background-color: var(--main-background-color);
+}
+
+h1 {
+  font-size: 1.5rem;
 }
 
 p {
-  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
 
 .card {
-  width: 90%;
+  width: 85%;
   max-width: 400px;
-  padding: 1.75rem;
-  background-color: var(--card-background);
-  color: var(--white);
+  padding: 1.5rem;
+  background-color: var(--card-background-color);
+  color: var(--white-color);
   border-radius: 1rem;
 }
 
-.card-image {
+.card-image-container {
   position: relative;
 }
 
-.card-image img {
+.card-image {
   display: block;
   width: 100%;
   border-radius: 0.5rem;
 }
 
-.card-image::before,
-.card-image::after {
+.card-image-container::before,
+.card-image-container::after {
   content: "";
   position: absolute;
   top: 0;
@@ -58,29 +66,28 @@ p {
   left: 0;
 }
 
-.card-image::before {
-  background-color: var(--cyan);
-  opacity: 0.5;
+.card-image-container::before {
+  background-color: var(--cyan-color);
   border-radius: 0.5rem;
-  transform: scale(0);
-  transition: transform 0.2s;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-.card-image:hover::before {
-  transform: scale(1);
+.card-image-container:hover::before {
+  opacity: 0.5;
   cursor: pointer;
 }
 
-.card-image::after {
-  background-image: url("images/icon-view.svg");
+.card-image-container::after {
+  background-image: url("./images/icon-view.svg");
   background-repeat: no-repeat;
   background-position: center;
-  transform: scale(0);
-  transition: transform 0.2s;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-.card-image:hover::after {
-  transform: scale(1);
+.card-image-container:hover::after {
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -88,13 +95,19 @@ p {
   margin: 1.5rem 0;
 }
 
-.card-title:hover {
-  color: var(--cyan);
+.card-title a {
+  text-decoration: none;
+  color: var(--white-color);
+  transition: color 0.4s;
+}
+
+.card-title a:hover {
+  color: var(--cyan-color);
 }
 
 .card-text {
-  color: var(--soft-blue);
   margin: 1.25rem 0;
+  color: var(--soft-blue-color);
 }
 
 .row {
@@ -110,12 +123,12 @@ p {
 }
 
 .left-column {
-  color: var(--cyan);
+  color: var(--cyan-color);
   font-weight: 600;
 }
 
 .right-column {
-  color: var(--soft-blue);
+  color: var(--soft-blue-color);
 }
 
 .gap {
@@ -124,33 +137,31 @@ p {
 
 .line {
   height: 1px;
-  background-color: var(--line);
+  background-color: var(--line-color);
   margin: 1.25rem 0;
 }
 
 .card-creator {
-  color: var(--soft-blue);
+  color: var(--soft-blue-color);
 }
 
-.card-creator-image img {
+.card-creator-image {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  border: 0.15rem solid var(--white);
+  border: 0.15rem solid var(--white-color);
 }
 
 .big-gap {
   gap: 1.5rem;
 }
 
-.creator {
-  color: var(--white);
+.creator-name a {
+  text-decoration: none;
+  color: var(--white-color);
+  transition: color 0.4s;
 }
 
-.creator:hover {
-  color: var(--cyan);
-}
-
-.pointer {
-  cursor: pointer;
+.creator-name a:hover {
+  color: var(--cyan-color);
 }
